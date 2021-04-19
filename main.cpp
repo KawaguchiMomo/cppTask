@@ -6,9 +6,20 @@
 using namespace std;
 
 int main(){
-    CGameField *cGameField;
-    cGameField = new CGameField();
+    // // 下記やり方とnewを使わないやり方は何が違うのか
+    // CGameField *cGameField;
+    // cGameField = new CGameField();
+    // // 盤面全体を表示
+    // cGameField->getField();
+    // delete cGameField;
+
+    CGameField cGamefield;
+
     // 盤面全体を表示
-    cGameField->getField();
-    delete cGameField;
+    cGamefield.printField();
+
+    CPlayer cplayer;
+    cplayer.printTarnPlayer(0);
+
+
 }
