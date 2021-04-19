@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++       CMakeFiles/a.out.dir/main.cpp.o CMakeFiles/a.out.dir/gameField.cpp.o  -o a.out -rdynamic 
