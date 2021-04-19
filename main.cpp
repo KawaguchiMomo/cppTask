@@ -2,6 +2,7 @@
 
 #include "gameField.h"
 #include "player.h"
+#include "turn.h"
 
 using namespace std;
 
@@ -14,12 +15,23 @@ int main(){
     // delete cGameField;
 
     CGameField cGamefield;
-
-    // 盤面全体を表示
-    cGamefield.printField();
-
     CPlayer cplayer;
-    cplayer.printTarnPlayer(0);
+    CTurn cturn;
+
+    for(int i = 0;i<3;i++){
+        // ターン数を表示
+        cturn.printTurn();
+
+        // 盤面全体を表示
+        cGamefield.printField();
+
+        
+        cplayer.printTarnPlayer(0);
+
+        // ターンを進める
+        cturn.turnNext();
+    }
+
 
 
 }
