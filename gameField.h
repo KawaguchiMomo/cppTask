@@ -14,12 +14,12 @@ class CGameField{
         CGameField();
         // デストラクタ
         virtual ~CGameField();
-        // 値の取得
-        string getBlock(int i);
+        //  マスにアクセス
+        string getBlock(int i) const;
         // 盤面全体を表示
-        void printField();
+        void printField() const;
         // 入力を盤面に反映する
-        void putSimbol(int i, string player);
+        void putSimbol(int i, const string player);
 };
 
 #endif

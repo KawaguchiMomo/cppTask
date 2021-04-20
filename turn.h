@@ -12,9 +12,9 @@ class CTurn{
         //ターンを進める
         void turnNext();
         // 現在のターンを取得する
-        int getTurn();
+        int getTurn() const;
         // 現在のターンを表示する
-        void printTurn();
+        void printTurn() const;
         // ターン数が10になったら引き分けにしてゲームを終了する
 
 };

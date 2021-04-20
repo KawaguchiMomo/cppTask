@@ -19,12 +19,12 @@ void CTurn::turnNext()
     turn++;
 }
 // 現在のターンを取得する
-int CTurn::getTurn()
+int CTurn::getTurn() const
 {
     return turn;
 }
 // 現在のターンを表示する
-void CTurn::printTurn()
+void CTurn::printTurn() const
 {
     cout << "現在" << getTurn() << "ターン目です。" << endl;
 }

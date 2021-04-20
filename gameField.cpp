@@ -12,15 +12,15 @@ CGameField::CGameField()
 CGameField::~CGameField()
 {}
 // マスにアクセス
-string CGameField::getBlock(int i)
+string CGameField::getBlock(int i) const
 {
     return fieldBlocks[i];
 }
 // 盤面全体を表示
-void CGameField::printField()
+void CGameField::printField() const
 {
     // イテレーター作成
-    vector<string>::iterator i1;
+    vector<string>::const_iterator i1;
 
     for(i1 = fieldBlocks.begin()+1; i1 != fieldBlocks.end(); i1++){
         cout << *i1;

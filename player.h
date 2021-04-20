@@ -15,11 +15,11 @@ class CPlayer{
         // デストラクタ
         virtual ~CPlayer();
         // プレイヤーの取得
-        string getPlayer(int i);
+        string getPlayer(int i) const;
         // 現在のターンのプレイヤーの取得
-        string getTarnPlayer(int turn);
+        string getTarnPlayer(int turn) const;
         // 現在のターンのプレイヤーを表示
-        void printTarnPlayer(int turn);
+        void printTarnPlayer(int turn) const;
 };
 
 #endif
