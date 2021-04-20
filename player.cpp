@@ -18,7 +18,13 @@ string CPlayer::getPlayer(int i)
     return player[i];
 }
 
-// プレイヤーネーム出力
-void CPlayer::printTarnPlayer(int i){
-    cout << getPlayer(i) << "のターンです。" << endl;
+// 現在のターンのプレイヤーの取得
+string CPlayer::getTarnPlayer(int turn)
+{
+    return player[turn%2];
+}
+
+// 現在のターンのプレイヤーネーム出力
+void CPlayer::printTarnPlayer(int turn){
+    cout << getTarnPlayer(turn) << "のターンです。" << endl;
 }

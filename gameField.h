@@ -17,7 +17,9 @@ class CGameField{
         // 値の取得
         string getBlock(int i);
         // 盤面全体を表示
-        void getField();
+        void printField();
+        // 入力を盤面に反映する
+        void putSimbol(int i, string player);
 };
 
 #endif

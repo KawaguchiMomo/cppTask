@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 #include "gameField.h"
 #include "player.h"
 #include "turn.h"
@@ -14,22 +15,27 @@ int main(){
     // cGameField->getField();
     // delete cGameField;
 
-    CGameField cGamefield;
-    CPlayer cplayer;
-    CTurn cturn;
+    CGameField cGameField;
+    CPlayer cPlayer;
+    CTurn cTurn;
 
     for(int i = 0;i<3;i++){
         // ターン数を表示
-        cturn.printTurn();
+        cTurn.printTurn();
+
+        // ターンプレイヤー表示
+        cPlayer.printTarnPlayer(cTurn.getTurn());
 
         // 盤面全体を表示
-        cGamefield.printField();
+        cGameField.printField();
 
-        
-        cplayer.printTarnPlayer(0);
+        // 盤面に挿入
+        int blockNumber;
+        cin >> blockNumber;
+        cGameField.putSimbol(blockNumber,cPlayer.getTarnPlayer(cTurn.getTurn()));
 
         // ターンを進める
-        cturn.turnNext();
+        cTurn.turnNext();
     }
 
 

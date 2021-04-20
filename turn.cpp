@@ -6,7 +6,7 @@ using namespace std;
 // コンストラクタ
 CTurn::CTurn()
 {
-    turn = 0;
+    turn = 1;
 }
 
 // デストラクタ

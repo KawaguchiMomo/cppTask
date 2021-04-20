@@ -16,8 +16,10 @@ class CPlayer{
         virtual ~CPlayer();
         // プレイヤーの取得
         string getPlayer(int i);
+        // 現在のターンのプレイヤーの取得
+        string getTarnPlayer(int turn);
         // 現在のターンのプレイヤーを表示
-        void printTarnPlayer(int i);
+        void printTarnPlayer(int turn);
 };
 
 #endif

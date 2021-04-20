@@ -1,3 +1,4 @@
+#include <limits>
 #include "gameField.h"
 
 // コンストラクタ
@@ -16,7 +17,7 @@ string CGameField::getBlock(int i)
     return fieldBlocks[i];
 }
 // 盤面全体を表示
-void CGameField::getField()
+void CGameField::printField()
 {
     // イテレーター作成
     vector<string>::iterator i1;
@@ -24,10 +25,24 @@ void CGameField::getField()
     for(i1 = fieldBlocks.begin()+1; i1 != fieldBlocks.end(); i1++){
         cout << *i1;
         // begin()-現在のイテレーターで現在のイテレーターが何番目か取得できる
-        int index = fieldBlocks.begin()-i1;
+        int index = std::distance(fieldBlocks.begin(), i1);
         // 現在のイテレーターが3列目だったら改行
         if(index % 3 == 0){
             cout << endl;
         }
     }
+}
+
+void CGameField::putSimbol(int blockNumber, string player)
+{
+    // 入力させる
+    cout << "書き込むマスを入力してください。(1~9)";
+    // 整数以外はエラー、すでに書き込んである箇所はエラー
+    for ( ;!blockNumber || getBlock(blockNumber) != "-"; ) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "入力が間違っています" << endl;
+        cout << "書き込むマスを入力してください。(1~9)";
+    }
+    fieldBlocks[blockNumber] = player;
 }
