@@ -18,8 +18,17 @@ class CGameField{
         string getBlock(int i) const;
         // 盤面全体を表示
         void printField() const;
+        // 入力を受けつける
+        int inputSimbol();
         // 入力を盤面に反映する
-        void putSimbol(int i, const string player);
+        void putSimbolToBlock(int i, const string player);
+        // 盤面を走査する
+        bool scanField() const;
+        bool scan3Lines() const;
+        bool scanRTopToLBottomLines() const;
+        bool scanLTopToRBottomLines() const;
+        bool scan3Columns() const;
+        bool scanOneLine(int simbol, int nextSimbol, int nextNextSimbol) const;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include <limits>
+
 #include "gameField.h"
 
 // コンストラクタ
@@ -33,10 +34,14 @@ void CGameField::printField() const
     }
 }
 
-void CGameField::putSimbol(int blockNumber, string player)
+// 入力を受け付ける
+// todo:一度入力を間違えると以降聞き返されても代入がきかなくなるので修正必要
+int CGameField::inputSimbol()
 {
     // 入力させる
     cout << "書き込むマスを入力してください。(1~9)";
+    int blockNumber;
+    cin >> blockNumber;
     // 整数以外はエラー、すでに書き込んである箇所はエラー
     for ( ;!blockNumber || getBlock(blockNumber) != "-"; ) {
         cin.clear();
@@ -44,5 +49,72 @@ void CGameField::putSimbol(int blockNumber, string player)
         cout << "入力が間違っています" << endl;
         cout << "書き込むマスを入力してください。(1~9)";
     }
+    return blockNumber;
+}
+
+// 入力を盤面に反映する
+void CGameField::putSimbolToBlock(int blockNumber, string player)
+{
     fieldBlocks[blockNumber] = player;
 }
+
+// 盤面を走査する
+bool CGameField::scanField() const
+{
+    if(scan3Lines()) {return true;}
+    if(scanRTopToLBottomLines()) {return true;}
+    if(scan3Columns()) {return true;}
+    if(scanLTopToRBottomLines()) {return true;}
+    return false;
+}
+
+// 3行を走査
+bool CGameField::scan3Lines() const
+{
+    for(int line = 1;line <= 7;line+=3){
+        if(scanOneLine(line,line+1,line+2)) {return true;}
+    }
+    return false;
+}
+
+// 右上から左下の斜めを走査
+bool CGameField::scanRTopToLBottomLines() const
+{
+    int line = 3;
+    if(scanOneLine(line,line+2,line+4)) {return true;}
+    return false;
+}
+
+// 3列を走査
+bool CGameField::scan3Columns() const
+{
+    for(int line = 1;line < 3;line++){
+        if(scanOneLine(line,line+3,line+6)) {return true;}
+    }
+    return false;
+}
+
+// 左上から右下の斜めを走査
+bool CGameField::scanLTopToRBottomLines() const
+{
+    int line = 1;
+    if(scanOneLine(line,line+4,line+8)) {return true;}
+    return false;
+}
+
+// 連なるマスを走査
+bool CGameField::scanOneLine(int block, int nextBlock, int nextNextBlock) const
+{
+    if(nextBlock == 0) { return true; } // 2個目と3個目のブロックを走査したら完了
+
+    string preSimbol;
+    // 今の記号を記録
+    preSimbol = getBlock(block);
+    // 未入力であれば走査中止
+    if(preSimbol == "-") { return false; }
+    // 前の記号と今の記号が異なっていれば走査中止
+    if(preSimbol != getBlock(nextBlock)){ return false; }
+
+    return scanOneLine(nextBlock,nextNextBlock,0);
+}
+
