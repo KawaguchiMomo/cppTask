@@ -46,8 +46,13 @@ int CGameField::inputSimbol()
     for ( ;!blockNumber || getBlock(blockNumber) != "-"; ) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "入力が間違っています" << endl;
+        if(!blockNumber){
+            cout << "入力が間違っています。" << endl;
+        }else if(getBlock(blockNumber) != "-"){
+            cout << "既に埋まっています。" << endl;
+        }
         cout << "書き込むマスを入力してください。(1~9)";
+        cin >> blockNumber;
     }
     return blockNumber;
 }
