@@ -21,25 +21,27 @@ int main(){
         cTurn.printTurn();
 
         // ターンプレイヤー表示
-        cPlayer.printTarnPlayer(cTurn.getTurn());
+        cPlayer.printTurnPlayer(cTurn.getTurn());
 
         // 盤面全体を表示
         cGameField.printField();
 
         // 盤面に挿入
         
-        cGameField.putSimbolToBlock(cGameField.inputSimbol(),cPlayer.getTarnPlayer(cTurn.getTurn()));
+        cGameField.putSymbolToBlock(cGameField.inputSymbol(),cPlayer.getTurnPlayer(cTurn.getTurn()));
 
         // 勝利処理
         // todo: 他クラスに移動させるか、勝利、引き分け処理のクラスを作るか？
         if(cGameField.scanField()){
             cGameField.printField();
-            cout << cPlayer.getTarnPlayer(cTurn.getTurn()) << "の勝利！" << endl;
+            cout << cPlayer.getTurnPlayer(cTurn.getTurn()) << "の勝利！" << endl;
             exit(0);
         }
 
         // ターンを進める
         cTurn.turnNext();
+
+        cout << "-------------------------------------" << endl;
     }
 
 

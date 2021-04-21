@@ -36,7 +36,7 @@ void CGameField::printField() const
 
 // 入力を受け付ける
 // todo:一度入力を間違えると以降聞き返されても代入がきかなくなるので修正必要
-int CGameField::inputSimbol()
+int CGameField::inputSymbol()
 {
     // 入力させる
     cout << "書き込むマスを入力してください。(1~9)";
@@ -58,7 +58,7 @@ int CGameField::inputSimbol()
 }
 
 // 入力を盤面に反映する
-void CGameField::putSimbolToBlock(int blockNumber, string player)
+void CGameField::putSymbolToBlock(int blockNumber, string player)
 {
     fieldBlocks[blockNumber] = player;
 }
@@ -112,13 +112,13 @@ bool CGameField::scanOneLine(int block, int nextBlock, int nextNextBlock) const
 {
     if(nextBlock == 0) { return true; } // 2個目と3個目のブロックを走査したら完了
 
-    string preSimbol;
+    string preSymbol;
     // 今の記号を記録
-    preSimbol = getBlock(block);
+    preSymbol = getBlock(block);
     // 未入力であれば走査中止
-    if(preSimbol == "-") { return false; }
+    if(preSymbol == "-") { return false; }
     // 前の記号と今の記号が異なっていれば走査中止
-    if(preSimbol != getBlock(nextBlock)){ return false; }
+    if(preSymbol != getBlock(nextBlock)){ return false; }
 
     return scanOneLine(nextBlock,nextNextBlock,0);
 }

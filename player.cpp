@@ -19,12 +19,12 @@ string CPlayer::getPlayer(int i) const
 }
 
 // 現在のターンのプレイヤーの取得
-string CPlayer::getTarnPlayer(int turn) const
+string CPlayer::getTurnPlayer(int turn) const
 {
     return player[turn%2];
 }
 
 // 現在のターンのプレイヤーネーム出力
-void CPlayer::printTarnPlayer(int turn) const{
-    cout << getTarnPlayer(turn) << "のターンです。" << endl;
+void CPlayer::printTurnPlayer(int turn) const{
+    cout << getTurnPlayer(turn) << "のターンです。" << endl;
 }
