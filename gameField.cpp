@@ -37,21 +37,27 @@ void CGameField::printField() const
 // 入力を受け付ける
 int CGameField::inputSymbol()
 {
-    // 入力させる
-    cout << "書き込むマスを入力してください。(1~9)";
     int blockNumber;
-    cin >> blockNumber;
-    // 整数以外はエラー、すでに書き込んである箇所はエラー
-    for ( ;!blockNumber || getBlock(blockNumber) == "x" || getBlock(blockNumber) == "o"; ) {
+    // 整数1~9以外はエラー、すでに書き込んである箇所はエラー
+    while(1) {
+        // 入力させる
+        cout << "書き込むマスを入力してください。(1~9)";
+        cin >> blockNumber;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if(!blockNumber){
             cout << "入力が間違っています。" << endl;
-        }else if(getBlock(blockNumber) == "x" || getBlock(blockNumber) == "o"){
-            cout << "既に埋まっています。" << endl;
+            continue;
         }
-        cout << "書き込むマスを入力してください。(1~9)";
-        cin >> blockNumber;
+        if(!(1 <= blockNumber && blockNumber <= 9)){
+            cout << "入力が間違っています。" << endl;
+            continue;
+        }
+        if(getBlock(blockNumber) == "x" || getBlock(blockNumber) == "o"){
+            cout << "既に埋まっています。" << endl;
+            continue;
+        }
+        break;
     }
     return blockNumber;
 }
