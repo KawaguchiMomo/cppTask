@@ -12,14 +12,14 @@ CGameManager::CGameManager()
 CGameManager::~CGameManager(){}
 
 // 現在のターンのプレイヤーネーム出力
-void CGameManager::printTurnPlayer(string player) const
+void CGameManager::printTurnPlayer(const string& player) const
 {
     cout << player << "のターンです。" << endl;
     
 }
 
 // 現在のターンを表示する
-void CGameManager::printTurn(int turn) const
+void CGameManager::printTurn(const int turn) const
 {
     cout << "現在" << turn << "ターン目です。" << endl;
 }
@@ -35,7 +35,7 @@ void CGameManager::printManual() const
 
 
 // 勝利表示、終了
-void CGameManager::victory(string player) const
+void CGameManager::victory(const string& player) const
 {
     cout << player << "の勝利！" << endl;
     exit(0);

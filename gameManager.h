@@ -18,13 +18,13 @@ class CGameManager{
         // デストラクタ
         virtual ~CGameManager();
         // 現在のターンのプレイヤーを表示
-        void printTurnPlayer(string player) const;
+        void printTurnPlayer(const string& player) const;
         // 現在のターンを表示する
-        void printTurn(int turn) const;
+        void printTurn(const int turn) const;
         // 入力キー見本を表示
         void printManual() const;
         // 勝利表示、終了
-        void victory(string player) const;
+        void victory(const string& player) const;
         // 引き分け表示、終了
         void draw() const;
 };

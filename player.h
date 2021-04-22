@@ -15,9 +15,9 @@ class CPlayer{
         // デストラクタ
         virtual ~CPlayer();
         // プレイヤーの取得
-        string getPlayer(int i) const;
+        const string& getPlayer(const int i) const;
         // 現在のターンのプレイヤーの取得
-        string getTurnPlayer(int turn) const;
+        const string& getTurnPlayer(const int turn) const;
 };
 
 #endif

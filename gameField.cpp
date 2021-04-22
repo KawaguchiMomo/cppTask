@@ -13,9 +13,9 @@ CGameField::CGameField()
 CGameField::~CGameField()
 {}
 // マスにアクセス
-string CGameField::getBlock(int i) const
+const string& CGameField::getBlock(const int blockNumber) const
 {
-    return fieldBlocks[i];
+    return fieldBlocks[blockNumber];
 }
 // 盤面全体を表示
 void CGameField::printField() const
@@ -57,7 +57,7 @@ int CGameField::inputSymbol()
 }
 
 // 入力を盤面に反映する
-void CGameField::putSymbolToBlock(int blockNumber, string player)
+void CGameField::putSymbolToBlock(const int blockNumber, const string& player)
 {
     fieldBlocks[blockNumber] = player;
 }
@@ -107,7 +107,7 @@ bool CGameField::scanLTopToRBottomLines() const
 }
 
 // 連なるマスを走査
-bool CGameField::scanOneLine(int block, int nextBlock, int nextNextBlock) const
+bool CGameField::scanOneLine(const int block, const int nextBlock, const int nextNextBlock) const
 {
     if(nextBlock == 0) { return true; } // 2個目と3個目のブロックを走査したら完了
 

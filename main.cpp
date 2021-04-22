@@ -18,9 +18,13 @@ int main(){
     CTurn cTurn;
     CGameManager cGameManager;
 
+    int turn = cTurn.getTurn();
+    string turnPlayer = cPlayer.getTurnPlayer(turn);
+
     while(1){
-        int turn = cTurn.getTurn();
-        string turnPlayer = cPlayer.getTurnPlayer(turn);
+        // 現在ターンとターンプレイヤーの取得
+        turn = cTurn.getTurn();
+        turnPlayer = cPlayer.getTurnPlayer(turn);
 
         // ターン数を表示
         cGameManager.printTurn(turn);

@@ -13,13 +13,13 @@ CPlayer::~CPlayer()
 {}
 
 // プレイヤーネーム取得
-string CPlayer::getPlayer(int i) const
+const string& CPlayer::getPlayer(int i) const
 {
     return player[i];
 }
 
 // 現在のターンのプレイヤーの取得
-string CPlayer::getTurnPlayer(int turn) const
+const string& CPlayer::getTurnPlayer(int turn) const
 {
     return player[turn%2];
 }
