@@ -25,6 +25,6 @@ int CTurn::getTurn() const
 // ターン数が10になったら引き分けにしてゲームを終了する
 bool CTurn::DrawJudge() const
 {
-    if(getTurn() <= 9) return false;
+    if(getTurn() < 9) return false;
     return true;
 }
