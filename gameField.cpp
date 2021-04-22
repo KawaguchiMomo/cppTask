@@ -2,6 +2,9 @@
 
 #include "gameField.h"
 
+// ゲーム盤の一列の長さ
+const int MAXLINE = 3;
+
 // コンストラクタ
 CGameField::CGameField()
 {
@@ -81,8 +84,10 @@ bool CGameField::scanField() const
 // 3行を走査
 bool CGameField::scan3Lines() const
 {
-    for(int line = 1;line <= 7;line+=3){
+    for(int i = 1;i <= MAXLINE;i++){
+        int line = 1;
         if(scanOneLine(line,line+1,line+2)) {return true;}
+        line+=MAXLINE;
     }
     return false;
 }
@@ -90,16 +95,19 @@ bool CGameField::scan3Lines() const
 // 右上から左下の斜めを走査
 bool CGameField::scanRTopToLBottomLines() const
 {
-    int line = 3;
-    if(scanOneLine(line,line+2,line+4)) {return true;}
+    int line = MAXLINE;
+    int shift=(MAXLINE-1);
+    if(scanOneLine(line,line+shift,line+shift*2)) {return true;}
     return false;
 }
 
 // 3列を走査
 bool CGameField::scan3Columns() const
 {
-    for(int line = 1;line < 3;line++){
-        if(scanOneLine(line,line+3,line+6)) {return true;}
+    for(int i = 1;i <= MAXLINE;i+=MAXLINE){
+        int line = 1;
+        if(scanOneLine(line,line+MAXLINE,line+MAXLINE*2)) {return true;}
+        line++;
     }
     return false;
 }
@@ -108,7 +116,8 @@ bool CGameField::scan3Columns() const
 bool CGameField::scanLTopToRBottomLines() const
 {
     int line = 1;
-    if(scanOneLine(line,line+4,line+8)) {return true;}
+    int shift=(MAXLINE+1);
+    if(scanOneLine(line,line+shift,line+shift*2)) {return true;}
     return false;
 }
 
