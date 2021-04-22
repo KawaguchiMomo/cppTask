@@ -4,30 +4,27 @@
 
 
 // コンストラクタ
-CGameManager::CGameManager()
-{
-    victoryMessage = "の勝利";
-}
+CGameManager::CGameManager(){}
 // デストラクタ
 CGameManager::~CGameManager(){}
 
 // 現在のターンのプレイヤーネーム出力
 void CGameManager::printTurnPlayer(const string& player) const
 {
-    cout << player << "のターンです。" << endl;
+    cout << "ターンプレイヤー: " << player << endl;
     
 }
 
 // 現在のターンを表示する
 void CGameManager::printTurn(const int turn) const
 {
-    cout << "現在" << turn << "ターン目です。" << endl;
+    cout << turn << " ターン目" << endl;
 }
 
 // 入力キー見本を表示
 void CGameManager::printManual() const
 {
-    cout << "対応キー" << endl;
+    cout << "↓対応キー" << endl;
     cout << "123" << endl;
     cout << "456" << endl;
     cout << "789" << endl;
@@ -37,7 +34,7 @@ void CGameManager::printManual() const
 // 勝利表示、終了
 void CGameManager::victory(const string& player) const
 {
-    cout << player << "の勝利！" << endl;
+    cout << "プレイヤー " << player << " の勝利！" << endl;
     exit(0);
 }
 

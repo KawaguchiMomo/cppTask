@@ -46,7 +46,7 @@ int main(){
 
         cout << "-------------------------------------" << endl;
 
-        // 勝利処理
+        // 勝利判定
         if(cGameField.scanField()){
             cGameField.printField();
             cGameManager.victory(turnPlayer);
