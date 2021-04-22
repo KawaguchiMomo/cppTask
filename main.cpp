@@ -4,6 +4,7 @@
 #include "gameField.h"
 #include "player.h"
 #include "turn.h"
+#include "gameManager.h"
 
 using namespace std;
 
@@ -15,33 +16,46 @@ int main(){
     CGameField cGameField;
     CPlayer cPlayer;
     CTurn cTurn;
+    CGameManager cGameManager;
 
-    for(int i = 0;i<10;i++){
+    while(1){
+        int turn = cTurn.getTurn();
+        string turnPlayer = cPlayer.getTurnPlayer(turn);
+
         // ターン数を表示
-        cTurn.printTurn();
+        cGameManager.printTurn(turn);
 
         // ターンプレイヤー表示
-        cPlayer.printTurnPlayer(cTurn.getTurn());
+        cGameManager.printTurnPlayer(turnPlayer);
 
         // 盤面全体を表示
         cGameField.printField();
 
+        // 入力キー見本表示
+        cGameManager.printManual();
+
+        // 入力受け付け
+        int inputSymbol = cGameField.inputSymbol();
+
         // 盤面に挿入
-        
-        cGameField.putSymbolToBlock(cGameField.inputSymbol(),cPlayer.getTurnPlayer(cTurn.getTurn()));
+        cGameField.putSymbolToBlock(inputSymbol,turnPlayer);
+
+        cout << "-------------------------------------" << endl;
 
         // 勝利処理
-        // todo: 他クラスに移動させるか、勝利、引き分け処理のクラスを作るか？
         if(cGameField.scanField()){
             cGameField.printField();
-            cout << cPlayer.getTurnPlayer(cTurn.getTurn()) << "の勝利！" << endl;
-            exit(0);
+            cGameManager.victory(turnPlayer);
+        }
+
+        // 引き分け判定
+        if(cTurn.DrawJudge()){
+            cGameField.printField();
+            cGameManager.draw();
         }
 
         // ターンを進める
         cTurn.turnNext();
-
-        cout << "-------------------------------------" << endl;
     }
 
 

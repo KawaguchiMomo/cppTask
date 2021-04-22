@@ -18,8 +18,6 @@ class CPlayer{
         string getPlayer(int i) const;
         // 現在のターンのプレイヤーの取得
         string getTurnPlayer(int turn) const;
-        // 現在のターンのプレイヤーを表示
-        void printTurnPlayer(int turn) const;
 };
 
 #endif

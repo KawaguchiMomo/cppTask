@@ -23,8 +23,3 @@ string CPlayer::getTurnPlayer(int turn) const
 {
     return player[turn%2];
 }
-
-// 現在のターンのプレイヤーネーム出力
-void CPlayer::printTurnPlayer(int turn) const{
-    cout << getTurnPlayer(turn) << "のターンです。" << endl;
-}

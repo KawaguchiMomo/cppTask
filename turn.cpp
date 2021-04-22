@@ -10,8 +10,7 @@ CTurn::CTurn()
 }
 
 // デストラクタ
-CTurn::~CTurn()
-{}
+CTurn::~CTurn(){}
 
 //ターンを進める
 void CTurn::turnNext()
@@ -23,9 +22,9 @@ int CTurn::getTurn() const
 {
     return turn;
 }
-// 現在のターンを表示する
-void CTurn::printTurn() const
-{
-    cout << "現在" << getTurn() << "ターン目です。" << endl;
-}
 // ターン数が10になったら引き分けにしてゲームを終了する
+bool CTurn::DrawJudge() const
+{
+    if(getTurn() <= 9) return false;
+    return true;
+}

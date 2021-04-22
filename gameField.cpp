@@ -35,7 +35,6 @@ void CGameField::printField() const
 }
 
 // 入力を受け付ける
-// todo:一度入力を間違えると以降聞き返されても代入がきかなくなるので修正必要
 int CGameField::inputSymbol()
 {
     // 入力させる
@@ -43,12 +42,12 @@ int CGameField::inputSymbol()
     int blockNumber;
     cin >> blockNumber;
     // 整数以外はエラー、すでに書き込んである箇所はエラー
-    for ( ;!blockNumber || getBlock(blockNumber) != "-"; ) {
+    for ( ;!blockNumber || getBlock(blockNumber) == "x" || getBlock(blockNumber) == "o"; ) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if(!blockNumber){
             cout << "入力が間違っています。" << endl;
-        }else if(getBlock(blockNumber) != "-"){
+        }else if(getBlock(blockNumber) == "x" || getBlock(blockNumber) == "o"){
             cout << "既に埋まっています。" << endl;
         }
         cout << "書き込むマスを入力してください。(1~9)";

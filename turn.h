@@ -14,8 +14,9 @@ class CTurn{
         // 現在のターンを取得する
         int getTurn() const;
         // 現在のターンを表示する
-        void printTurn() const;
+        // void printTurn() const;
         // ターン数が10になったら引き分けにしてゲームを終了する
+        bool DrawJudge() const;
 
 };
 

@@ -1,5 +1,5 @@
-#ifndef GAMEFIELD_H_
-#define GAMEFIELD_H_
+#ifndef GAME_FIELD_H_
+#define GAME_FIELD_H_
 
 #include <string>
 #include <vector>
