@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 
 #include "gameField.h"
 #include "player.h"
@@ -9,10 +9,6 @@
 using namespace std;
 
 int main(){
-    // // 下記やり方とnewを使わないやり方は何が違うのか
-    // CGameField *cGameField;
-    // cGameField = new CGameField();
-
     CGameField cGameField;
     CPlayer cPlayer;
     CTurn cTurn;
@@ -53,7 +49,7 @@ int main(){
         }
 
         // 引き分け判定
-        if(cTurn.DrawJudge()){
+        if(!cGameField.existEmptyBlock()){
             cGameField.printField();
             cGameManager.draw();
         }

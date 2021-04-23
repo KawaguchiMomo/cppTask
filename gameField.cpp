@@ -1,5 +1,5 @@
 #include <limits>
-
+#include <iostream>
 #include "gameField.h"
 
 // ゲーム盤の一列の長さ
@@ -84,8 +84,8 @@ bool CGameField::scanField() const
 // 3行を走査
 bool CGameField::scan3Lines() const
 {
+    int line = 1;
     for(int i = 1;i <= MAXLINE;i++){
-        int line = 1;
         if(scanOneLine(line,line+1,line+2)) {return true;}
         line+=MAXLINE;
     }
@@ -104,8 +104,8 @@ bool CGameField::scanRTopToLBottomLines() const
 // 3列を走査
 bool CGameField::scan3Columns() const
 {
-    for(int i = 1;i <= MAXLINE;i+=MAXLINE){
-        int line = 1;
+    int line = 1;
+    for(int i = 1;i <= MAXLINE;i++){
         if(scanOneLine(line,line+MAXLINE,line+MAXLINE*2)) {return true;}
         line++;
     }
@@ -137,3 +137,15 @@ bool CGameField::scanOneLine(const int block, const int nextBlock, const int nex
     return scanOneLine(nextBlock,nextNextBlock,0);
 }
 
+
+// "-"が残っているか走査
+bool CGameField::existEmptyBlock() const
+{
+    // イテレーター作成
+    vector<string>::const_iterator i1;
+
+    for(i1 = fieldBlocks.begin()+1; i1 != fieldBlocks.end(); i1++){
+        if(*i1 == "-"){ return true; }
+    }
+    return false;
+}

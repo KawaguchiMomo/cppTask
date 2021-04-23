@@ -2,9 +2,6 @@
 #define GAME_MANAGER_H
 
 #include <string>
-
-// class CPlayer;
-
 using namespace std;
 
 class CGameManager{
