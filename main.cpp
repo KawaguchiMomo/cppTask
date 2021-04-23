@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 
 #include "gameField.h"
 #include "player.h"
@@ -53,7 +53,7 @@ int main(){
         }
 
         // 引き分け判定
-        if(cTurn.DrawJudge()){
+        if(!cGameField.existEmptyBlock()){
             cGameField.printField();
             cGameManager.draw();
         }

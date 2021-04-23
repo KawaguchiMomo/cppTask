@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
 using namespace std;
 
 class CGameField{
@@ -29,6 +28,8 @@ class CGameField{
         bool scanLTopToRBottomLines() const;
         bool scan3Columns() const;
         bool scanOneLine(const int symbol, const int nextSymbol, const int nextNextSymbol) const;
+        // "-"が残っているか走査
+        bool existEmptyBlock() const;
 };
 
 #endif
