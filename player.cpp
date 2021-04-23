@@ -1,7 +1,6 @@
 #include <iostream>
 #include "player.h"
 
-
 // コンストラクタ
 CPlayer::CPlayer()
 {

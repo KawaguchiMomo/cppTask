@@ -1,7 +1,7 @@
-#include "turn.h"
-
 #include <string>
 #include <iostream>
+#include "turn.h"
+
 using namespace std;
 // コンストラクタ
 CTurn::CTurn()

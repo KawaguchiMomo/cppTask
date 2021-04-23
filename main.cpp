@@ -9,10 +9,6 @@
 using namespace std;
 
 int main(){
-    // // 下記やり方とnewを使わないやり方は何が違うのか
-    // CGameField *cGameField;
-    // cGameField = new CGameField();
-
     CGameField cGameField;
     CPlayer cPlayer;
     CTurn cTurn;
